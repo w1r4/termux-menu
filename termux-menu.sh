@@ -16,30 +16,40 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Init")
+            termux-wake-lock
             pkg install bash-completion 
             apt update && apt upgrade
             apt install wget git nano mc aria2 -y
+            termux-wake-unlock
             ;;
         "Backup")
+            termux-wake-lock
             cd /data/data/com.termux/files
             tar -cvzf /sdcard/termux-backup.tgz --owner=0 --group=0 home usr
+            termux-wake-unlock
             ;;
         "Restore")
+            termux-wake-lock
             cd /data/data/com.termux/files
             tar -xvzf /sdcard/termux-backup.tgz
+            termux-wake-unlock
             ;;                
         "Enable Storage")
             termux-setup-storage
             ;;
         "Install VNC")
+            termux-wake-lock
             pkg install x11-repo
             pkg install  tigervnc fluxbox -y
             export DISPLAY=":1"
             vncserver
+            termux-wake-unlock
             ;;
         "Install Metasploit")
+            termux-wake-lock
             pkg install unstable-repo
             pkg install metasploit -y
+            termux-wake-unlock
             ;;
         "install apkmod")
             cd $HOME
@@ -47,6 +57,7 @@ do
             sh termux-apk.sh
             ;;            
         "Install MPS-YOUTUBE")
+            termux-wake-lock
             cd $HOME
             pkg install python -y
             pip install youtube_dl
@@ -62,6 +73,7 @@ do
                   --split=10 --dir=%d --out=%f %u ,\
                   set ddir /storage/downloads/ , \
                   exit 
+              termux-wake-unlock    
             ;;
         "Quit")
             break
