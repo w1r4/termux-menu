@@ -9,7 +9,7 @@ options=("Init" \
          "Enable Storage" \
          "Install VNC" \
          "Install Metasploit" \
-         "install apkmod" \
+         "Install Apkmod" \
          "Install MPS-YOUTUBE" \
          "Quit") 
 select opt in "${options[@]}"
@@ -61,7 +61,7 @@ do
             pkg install metasploit -y
             termux-wake-unlock
             ;;
-        "Install apkmod")
+        "Install Apkmod")
             printf "Continue Install apkmod"
             read enter        
             cd $HOME
