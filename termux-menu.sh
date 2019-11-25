@@ -64,13 +64,13 @@ do
             pip install mps_youtube
             pip install mpv
             mpsyt set show_video true, \
-                  set download_command aria2c \
+                  set download_command "aria2c \
                   --stream-piece-selector=inorder \
                   --enable-http-pipelining=true \
                   --min-split-size=4m \
                   --file-allocation=none \
                   --max-connection-per-server=10 \
-                  --split=10 --dir=%d --out=%f %u ,\
+                  --split=10 --dir=%d --out=%f %u ",\
                   set ddir /storage/downloads/ , \
                   exit 
               termux-wake-unlock    
