@@ -70,8 +70,8 @@ do
                   --min-split-size=4m \
                   --file-allocation=none \
                   --max-connection-per-server=10 \
-                  --split=10 --dir=%d --out=%f %u ",\
-                  set ddir /storage/downloads/ , \
+                  --split=10 --dir=%d --out=%f %u",\
+                  set ddir $HOME/storage/downloads/ , \
                   exit 
               termux-wake-unlock    
             ;;
