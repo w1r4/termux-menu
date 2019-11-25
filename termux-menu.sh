@@ -16,6 +16,8 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Init")
+            printf "Continue Init"
+            read enter
             termux-wake-lock
             pkg install bash-completion 
             apt update && apt upgrade
@@ -23,21 +25,27 @@ do
             termux-wake-unlock
             ;;
         "Backup")
+            printf "Continue Backup"
+            read enter        
             termux-wake-lock
             cd /data/data/com.termux/files
             tar -cvzf /sdcard/termux-backup.tgz --owner=0 --group=0 home usr
             termux-wake-unlock
             ;;
         "Restore")
+            printf "Continue Restore"
+            read enter
             termux-wake-lock
             cd /data/data/com.termux/files
             tar -xvzf /sdcard/termux-backup.tgz
             termux-wake-unlock
             ;;                
-        "Enable Storage")
+        "Enable Storage")        
             termux-setup-storage
             ;;
         "Install VNC")
+            printf "Continue Install VNC"
+            read enter
             termux-wake-lock
             pkg install x11-repo
             pkg install  tigervnc fluxbox -y
@@ -46,17 +54,23 @@ do
             termux-wake-unlock
             ;;
         "Install Metasploit")
+            printf "Continue Install Metasploit"
+            read enter
             termux-wake-lock
             pkg install unstable-repo
             pkg install metasploit -y
             termux-wake-unlock
             ;;
-        "install apkmod")
+        "Install apkmod")
+            printf "Continue Install apkmod"
+            read enter        
             cd $HOME
             wget  https://raw.githubusercontent.com/w1r4/termux-menu/master/termux-apk.sh
             sh termux-apk.sh
             ;;            
         "Install MPS-YOUTUBE")
+            printf "Continue Install MPS-Youtube"
+            read enter        
             termux-wake-lock
             cd $HOME
             pkg install python -y
@@ -76,6 +90,8 @@ do
               termux-wake-unlock    
             ;;
         "Quit")
+            printf "Continue Quit"
+            read enter        
             break
             ;;
         *) echo "invalid option $REPLY";;
