@@ -16,9 +16,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Init")
-            pkg install unstable-repo
             pkg install bash-completion 
-            pkg install x11-repo
             apt update && apt upgrade
             apt install wget git nano mc aria2 -y
             ;;
@@ -34,11 +32,13 @@ do
             termux-setup-storage
             ;;
         "Install VNC")
+            pkg install x11-repo
             pkg install  tigervnc fluxbox -y
             export DISPLAY=":1"
             vncserver
             ;;
         "Install Metasploit")
+            pkg install unstable-repo
             pkg install metasploit -y
             ;;
         "install apkmod")
