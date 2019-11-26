@@ -105,7 +105,8 @@ do
             pkg install x11-repo
             pkg update
             pkg install qemu-common qemu-system-x86_64 qemu-utils
-            qemu-img create -f qcow2 hd1.qcow2 4G
+            qemu-img create -f qcow2 virtual_drive 4G
+            curl https://raw.githubusercontent.com/w1r4/termux-menu/master/runqemu -o runqemu
             ;;
         "Quit")
             printf "Continue Quit"
