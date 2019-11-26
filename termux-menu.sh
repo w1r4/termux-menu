@@ -24,7 +24,8 @@ do
             apt install wget git nano mc aria2 -y
             mkdir ~/.termux
             touch ~/.termux/termux.properties 
-            curl https://raw.githubusercontent.com/w1r4/termux-dotfiles/master/setup.sh -o setup.sh
+            cd $home
+            git clone https://github.com/w1r4/termux-dotfiles.git
             bash setup.sh
             echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> ~/.termux/termux.properties
             termux-reload-settings
