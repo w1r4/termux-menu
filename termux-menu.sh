@@ -24,7 +24,7 @@ do
             apt install wget git nano mc aria2 -y           
             curl https://raw.githubusercontent.com/w1r4/termux-dotfiles/master/setup.sh -o setup.sh
             bash setup.sh
-             echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> ~/.termux/termux.properties
+             echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> .termux/termux.properties
             termux-reload-settings
             termux-wake-unlock
             ;;
