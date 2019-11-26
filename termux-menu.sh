@@ -26,10 +26,12 @@ do
             touch ~/.termux/termux.properties 
             cd $home
             git clone https://github.com/w1r4/termux-dotfiles.git
+            cd ~/termux-dotfiles
             bash setup.sh
             echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> ~/.termux/termux.properties
             termux-reload-settings
             termux-wake-unlock
+            cd $home
             ;;
         "Backup")
             printf "Continue Backup"
