@@ -22,6 +22,7 @@ do
             pkg install bash-completion 
             apt update && apt upgrade
             apt install wget git nano mc aria2 -y
+            mkdir ~/.termux
             touch ~/.termux/termux.properties 
             curl https://raw.githubusercontent.com/w1r4/termux-dotfiles/master/setup.sh -o setup.sh
             bash setup.sh
