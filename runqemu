@@ -1,18 +1,31 @@
 #!/bin/bash
 
 qemu-system-x86_64 \
+  -nographic \
+	-m 512m \
+	-cdrom alpine_x86_64.iso \
+	-hda virtual_drive \
+	-boot d \
+	-net nic \
+	-net user \
+	-localtime
 
-    -hda hd1.qcow2 \    #hd1.img qemu-img create
 
-    -cdrom /sdcard/download/winxp.iso \   
 
-    -m 1024 \    
 
-    -netdev user,id=user.0 \
+#qemu-system-x86_64 \
 
-    -device rtl8139,netdev=user.0 \
+#    -hda hd1.qcow2 \    #hd1.img qemu-img create
 
-    -vga vmware \
+#    -cdrom /sdcard/download/winxp.iso \   
 
-    -display vnc=:10    
+#    -m 1024 \    
+
+#    -netdev user,id=user.0 \
+
+#    -device rtl8139,netdev=user.0 \
+
+#    -vga vmware \
+
+#    -display vnc=:10    
 
