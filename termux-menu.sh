@@ -12,6 +12,8 @@ options=("Init" \
          "Install Apkmod" \
          "Install MPS-YOUTUBE" \
          "Install QEMU" \
+         "Setup QEMU Alpine" \
+         "Run QEMU Alpine" \
          "Quit") 
 select opt in "${options[@]}"
 do
@@ -105,10 +107,29 @@ do
             pkg install x11-repo
             pkg update
             pkg install qemu-common qemu-system-x86_64 qemu-utils
-            qemu-img create -f qcow2 virtual_drive 4G
             curl https://raw.githubusercontent.com/w1r4/termux-menu/master/runqemu -o runqemu
             ;;
-        "Quit")
+         "Setup QEMU Alpine")
+            qemu-img create -f qcow2 virtual_drive 4G
+              
+            qemu-system-x86_64 -nographic \
+	                      -m 512m \
+	                      -cdrom alpine_x86_64.iso \
+	                      -hda virtual_drive \
+	                      -boot d \
+	                      -net nic \
+	                      -net user                                
+            ;;
+         "Run QEMU Alpine")
+            qemu-system-x86_64 -nographic \
+	                      -hda virtual_drive \
+	                      -boot c \
+	                      -net user,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80 \
+	                      -net nic \
+	                      -m 512M \
+	                      -smp 3
+            ;;
+         "Quit")
             printf "Continue Quit"
             read enter        
             break
