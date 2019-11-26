@@ -111,7 +111,7 @@ do
             ;;
          "Setup QEMU Alpine")
             qemu-img create -f qcow2 virtual_drive 4G
-              
+            curl http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-standard-3.10.3-x86_64.iso -o alpine_x86_64.iso
             qemu-system-x86_64 -nographic \
 	                      -m 512m \
 	                      -cdrom alpine_x86_64.iso \
