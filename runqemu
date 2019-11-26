@@ -15,4 +15,4 @@ qemu-system-x86_64 \
     -vga vmware \
 
     -display vnc=:10    
-bash runqemu
+
