@@ -22,7 +22,7 @@ do
             pkg install bash-completion 
             apt update && apt upgrade
             apt install wget git nano mc aria2 -y
-            wget https://raw.githubusercontent.com/w1r4/termux-dotfiles/master/setup.sh
+            curl https://raw.githubusercontent.com/w1r4/termux-dotfiles/master/setup.sh -o setup.sh
             bash setup.sh
             termux-wake-unlock
             ;;
@@ -67,7 +67,7 @@ do
             printf "Continue Install apkmod"
             read enter        
             cd $HOME
-            wget  https://raw.githubusercontent.com/w1r4/termux-menu/master/termux-apk.sh
+            curl  https://raw.githubusercontent.com/w1r4/termux-menu/master/termux-apk.sh -o termux-apk.sh
             sh termux-apk.sh
             ;;            
         "Install MPS-YOUTUBE")
