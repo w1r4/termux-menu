@@ -2,7 +2,7 @@
 
 qemu-system-x86_64 \
 
-    -hda hd1.img \    #hd1.img qemu-img create
+    -hda hd1.qcow2 \    #hd1.img qemu-img create
 
     -cdrom /sdcard/download/winxp.iso \   
 
