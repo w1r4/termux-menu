@@ -1,0 +1,17 @@
+#!/bin/bash
+
+qemu-system-x86_64 \
+
+    -hda hd1.img \    #hd1.img qemu-img create
+
+    -cdrom /sdcard/download/winxp.iso \   
+
+    -m 1024 \    
+
+    -netdev user,id=user.0 \
+
+    -device rtl8139,netdev=user.0 \
+
+    -vga vmware \
+
+    -display vnc=:10    
