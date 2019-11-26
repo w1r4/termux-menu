@@ -11,6 +11,7 @@ options=("Init" \
          "Install Metasploit" \
          "Install Apkmod" \
          "Install MPS-YOUTUBE" \
+         "Install QEMU" \
          "Quit") 
 select opt in "${options[@]}"
 do
@@ -97,6 +98,14 @@ do
                   set ddir $HOME/storage/downloads/ , \
                   exit 
               termux-wake-unlock    
+            ;;
+        "Install QEMU")
+            printf "Continue Install QEMU"
+            read enter
+            pkg install x11-repo
+            pkg update
+            pkg install qemu-common qemu-system-x86_64 qemu-utils
+            qemu-img create -f qcow2 hd1.qcow2 4G
             ;;
         "Quit")
             printf "Continue Quit"
