@@ -115,17 +115,15 @@ do
             qemu-system-x86_64 -nographic \
 	                      -m 512m \
 	                      -cdrom alpine_x86_64.iso \
-	                      -hda virtual_drive \
 	                      -boot d \
-             		      -nic user,model=virtio \
-                              -drive file=virtual_drive,media=disk,if=virtio                         
+             		      -drive file=virtual_drive,media=disk,if=virtio                         
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 -nographic \
-	                      -hda virtual_drive \
 	                      -boot c \
 	                      -net user,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80 \
-	                      -net nic \
+			      -drive file=virtual_drive,media=disk,if=virtio      
+	                      -nic user,model=virtio \
 	                      -m 512M \
 	                      -smp 3
             ;;
