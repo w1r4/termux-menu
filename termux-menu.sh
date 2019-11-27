@@ -116,7 +116,8 @@ do
 	                      -m 512m \
 	                      -cdrom alpine_x86_64.iso \
 	                      -boot d \
-             		      -drive file=virtual_drive,media=disk,if=virtio                         
+             		      -drive file=virtual_drive,media=disk,if=virtio \
+			      -nic user,model=virtio 
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 -nographic \
