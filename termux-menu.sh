@@ -117,8 +117,8 @@ do
 	                      -cdrom alpine_x86_64.iso \
 	                      -hda virtual_drive \
 	                      -boot d \
-	                      -net nic \
-	                      -net user                                
+	                      -net nic,model=rtl8139 \
+			      -net bridge,br=brkvm                               
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 -nographic \
