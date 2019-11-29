@@ -121,11 +121,11 @@ do
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 -nographic \
-	                      -boot c \
 	                      -net user,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80 \
 			      -drive file=virtual_drive,media=disk,if=virtio   \   
 	                      -nic user,model=virtio \
 	                      -m 512M \
+			      -loadvm new \
 	                      -smp 3
             ;;
          "Quit")
