@@ -121,6 +121,7 @@ do
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 virtual_drive -loadvm new -m 512m \
+	                        -nographic \
 	      			-drive file=virtual_drive,media=disk,if=virtio \
 			      	-nic user,model=virtio 
 	                        
