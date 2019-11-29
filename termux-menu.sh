@@ -123,7 +123,6 @@ do
             qemu-system-x86_64 -nographic \
 	                      -net user,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80 \
 			      -drive file=virtual_drive,media=disk,if=virtio   \   
-	                      -nic user,model=virtio \
 	                      -m 512M \
 			      -loadvm new \
 	                      -smp 3
