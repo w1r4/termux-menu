@@ -120,7 +120,8 @@ do
 			      -nic user,model=virtio 
             ;;
          "Run QEMU Alpine")
-            qemu-system-x86_64 -hda virtual_drive \
+            qemu-system-x86_64 -nographic \
+	                       -hda virtual_drive \
 	                       -loadvm new 
             ;;
          "Quit")
