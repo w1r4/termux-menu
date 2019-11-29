@@ -130,7 +130,9 @@ do
 	    ;;
 	 "Run QEMU Alpine Arm")
 	 qemu-system-arm \
-	        -sd sdcard -M vexpress-a9 -m 512 -kernel vmlinuz-vanilla -initrd initramfs-vanilla \
+	        -sd sdcard -M virt \
+		-cpu cortex-a15 \
+		-m 512M -kernel vmlinuz-vanilla -initrd initramfs-vanilla \
 		-append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \
 		-nographic
 	 
