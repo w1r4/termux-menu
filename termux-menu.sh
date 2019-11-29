@@ -130,7 +130,7 @@ do
 	    ;;
 	 "Run QEMU Alpine Arm")
 	 qemu-system-arm \
-  		-M virt -m 512M -cpu cortex-a15 \ 
+  		-M vexpress-a9 -m 512m \ 
   		-kernel vmlinuz-vanilla -initrd initramfs-vanilla \ 
   		-append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \ 
   		-nographic
