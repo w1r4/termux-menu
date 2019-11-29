@@ -117,7 +117,7 @@ do
 	                      -cdrom alpine_x86_64.iso \
 	                      -boot d \
              		      -drive file=virtual_drive,media=disk,if=virtio \
-			      -append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \
+			      -append console=ttyAMA0,ip=dhcp,alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
 			      -nic user,model=virtio 
             ;;
          "Run QEMU Alpine")
