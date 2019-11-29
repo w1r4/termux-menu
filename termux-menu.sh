@@ -121,8 +121,8 @@ do
             ;;
          "Run QEMU Alpine")
             qemu-system-x86_64 -hda virtual_drive \
-	                       -nographic \ 
-			       -loadvm new 
+	                       -loadvm new \ 
+	                       -nographic 
             ;;
          "Quit")
             printf "Continue Quit"
