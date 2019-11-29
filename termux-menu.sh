@@ -117,7 +117,7 @@ do
 	                      -cdrom alpine_x86_64.iso \
 	                      -boot d \
              		      -drive file=virtual_drive,media=disk,if=virtio \
-			      -append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/ \ # The console argument is required to get console output
+			      -append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \ # The console argument is required to get console output
                               -nographic \
 			      -nic user,model=virtio 
             ;;
