@@ -14,6 +14,7 @@ options=("Init" \
          "Install QEMU" \
          "Setup QEMU Alpine" \
          "Run QEMU Alpine" \
+	 "Run QEMU Alpine Arm" \
          "Quit") 
 select opt in "${options[@]}"
 do
@@ -124,8 +125,17 @@ do
 	                        -nographic \
 	      			-drive file=virtual_drive,media=disk,if=virtio \
 			      	-nic user,model=virtio 
-	                        
-            ;;
+				
+				
+	    ;;
+	 "Run QEMU Alpine Arm")
+	 qemu-system-arm \
+  		-M virt -m 512M -cpu cortex-a15 \ # Required, cortex-a53 is OK too
+  		-kernel vmlinuz-vanilla -initrd initramfs-vanilla \ # These two files are from the netboot archive
+  		-append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \ # The console argument is required to get console output
+  		-nographic
+	 
+	 ;;
          "Quit")
             printf "Continue Quit"
             read enter        
