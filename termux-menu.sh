@@ -133,6 +133,9 @@ do
 	        -M virt \
 		-cpu cortex-a15 \
 		-m 512M -kernel vmlinuz-vanilla -initrd initramfs-vanilla \
+		-drive file=virtual_drive,media=disk,if=virtio \
+		-netdev "user,id=n0" \
+		-device virtio-net-device,netdev=n0 \
 		-append "console=ttyAMA0 ip=dhcp alpine_repo=http://dl-cdn.alpinelinux.org/alpine/edge/main/" \
 		-nographic
 	 
